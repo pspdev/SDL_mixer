@@ -491,7 +491,7 @@ if test x$enable_music_ogg = xyes; then
         fi
     else
         AC_CHECK_HEADER([vorbis/vorbisfile.h], [have_ogg_hdr=yes])
-        AC_CHECK_LIB([vorbisfile], [ov_open_callbacks], [have_ogg_lib=yes])
+        AC_CHECK_LIB([vorbisfile], [ov_open_callbacks], [have_ogg_lib=yes], [], [-lvorbis -logg])
         if test x$have_ogg_hdr = xyes -a x$have_ogg_lib = xyes; then
             case "$host" in
                 *-*-darwin*)
